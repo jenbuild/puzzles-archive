@@ -1,5 +1,6 @@
 import { gameNames } from "@/constants/gameList";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -10,26 +11,25 @@ export default function Home() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
         {gameNames.map((item, index) => (
-          <div
-            className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow flex sm:flex-col items-center gap-2"
-            key={index}
-          >
-            <Image
-              src={item.image}
-              alt={item.name}
-              width={40}
-              height={40}
-              className="hidden sm:block"
-            />
-            <Image
-              src={item.image}
-              alt={item.name}
-              width={30}
-              height={30}
-              className="block sm:hidden"
-            />
-            <p className="md:text-center">{item.name}</p>
-          </div>
+          <Link key={index} href={`/games/${item.slug}/`}>
+            <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow flex sm:flex-col items-center gap-2">
+              <Image
+                src={item.image}
+                alt={item.name}
+                width={40}
+                height={40}
+                className="hidden sm:block"
+              />
+              <Image
+                src={item.image}
+                alt={item.name}
+                width={30}
+                height={30}
+                className="block sm:hidden"
+              />
+              <p className="md:text-center">{item.name}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

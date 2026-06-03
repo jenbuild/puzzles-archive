@@ -3,6 +3,8 @@
 :root {
   --background: #fff8f0;
   --foreground: #2d1b0f;
+  --sudoku-primary: #8cedcc;
+  --sudoku-secondary: #e5fdec;
 }
 
 @theme {
