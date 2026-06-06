@@ -34,7 +34,7 @@ const GameLevel = async ({ params }: GamePageProps) => {
     <div className="min-h-screen md:min-w-[600px] md:max-w-4xl md:mx-auto flex flex-col p-4 sm:p-6 md:p-8">
       <div className="flex justify-between items-center mb-8">
         <Link
-          href="/"
+          href={`/games/${name}/`}
           className="bg-white rounded-full p-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
         >
           <ChevronLeft className="w-6 h-6" />
