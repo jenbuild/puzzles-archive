@@ -2,6 +2,12 @@ import Link from "next/link";
 
 import { ChevronLeft } from "lucide-react";
 import SudokuBoard from "@/components/games/SudokuBoard";
+import TangoBoard from "@/components/games/TangoBoard";
+import PatchesBoard from "@/components/games/PatchesBoard";
+import ZipBoard from "@/components/games/ZipBoard";
+import QueensBoard from "@/components/games/QueensBoard";
+import PinpointBoard from "@/components/games/Pinpoint";
+import CrossclimbBoard from "@/components/games/CrossclimbBoard";
 
 type GamePageProps = {
   params: Promise<{
@@ -17,11 +23,22 @@ type GameBoardProps = {
 
 const GameBoard = ({ name, level }: GameBoardProps) => {
   switch (name) {
+    case "patches":
+      return <PatchesBoard level={level} />;
+    case "zip":
+      return <ZipBoard level={level} />;
     case "mini-sudoku":
       return <SudokuBoard level={level} />;
-    case "2":
-      return <div>Level 2</div>;
+    case "tango":
+      return <TangoBoard level={level} />;
+    case "queens":
+      return <QueensBoard level={level} />;
+    case "pinpoint":
+      return <PinpointBoard level={level} />;
+    case "crossclimb":
+      return <CrossclimbBoard level={level} />;
     default:
+      // Add Error Route Page here
       return <div>Level {level}</div>;
   }
 };
