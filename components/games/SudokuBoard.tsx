@@ -19,48 +19,48 @@ const SudokuBoard = ({ level }: SudokuBoardProps) => {
       { value: null, isFixed: false },
       { value: null, isFixed: false },
       { value: null, isFixed: false },
-      { value: 2, isFixed: true },
+      { value: 5, isFixed: true },
       { value: null, isFixed: false },
     ],
     [
       { value: null, isFixed: false },
-      { value: 3, isFixed: true },
+      { value: 2, isFixed: true },
       { value: null, isFixed: false },
       { value: 4, isFixed: true },
       { value: null, isFixed: false },
-      { value: 5, isFixed: true },
-    ],
-    [
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: 2, isFixed: true },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
       { value: null, isFixed: false },
     ],
     [
+      { value: null, isFixed: false },
+      { value: null, isFixed: false },
       { value: 3, isFixed: true },
+      { value: null, isFixed: false },
+      { value: null, isFixed: false },
+      { value: null, isFixed: false },
+    ],
+    [
       { value: null, isFixed: false },
       { value: null, isFixed: false },
       { value: null, isFixed: false },
       { value: 1, isFixed: true },
       { value: null, isFixed: false },
+      { value: null, isFixed: false },
     ],
     [
+      { value: null, isFixed: false },
+      { value: null, isFixed: false },
+      { value: 2, isFixed: true },
       { value: null, isFixed: false },
       { value: 4, isFixed: true },
       { value: null, isFixed: false },
-      { value: 5, isFixed: true },
-      { value: null, isFixed: false },
-      { value: 6, isFixed: true },
     ],
     [
       { value: null, isFixed: false },
+      { value: 5, isFixed: true },
+      { value: null, isFixed: false },
+      { value: null, isFixed: false },
       { value: null, isFixed: false },
       { value: 6, isFixed: true },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
     ],
   ];
 
@@ -125,7 +125,7 @@ const SudokuBoard = ({ level }: SudokuBoardProps) => {
                       ${colIdx % 3 === 2 ? "border-r-1 border-r-gray-900" : ""}
                       ${rowIdx % 2 === 1 ? "border-b-1 border-b-gray-900" : ""}
                       ${boxBgColor}
-                      ${isSelected ? "bg-yellow-300 ring-2 ring-yellow-500" : ""}
+                      ${isSelected ? "bg-green-300 ring-2 ring-green-500" : ""}
                       ${cell.isFixed ? "text-gray-900" : "text-blue-600"}
                       hover:bg-opacity-80 transition-all
                     `}

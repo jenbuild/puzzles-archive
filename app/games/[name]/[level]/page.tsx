@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ChevronLeft } from "lucide-react";
+import { LayoutGrid } from "lucide-react";
 import SudokuBoard from "@/components/games/SudokuBoard";
 import TangoBoard from "@/components/games/TangoBoard";
 import PatchesBoard from "@/components/games/PatchesBoard";
@@ -50,11 +50,8 @@ const GameLevel = async ({ params }: GamePageProps) => {
   return (
     <div className="min-h-screen md:min-w-[600px] md:max-w-4xl md:mx-auto flex flex-col p-4 sm:p-6 md:p-8">
       <div className="flex justify-between items-center mb-8">
-        <Link
-          href={`/games/${name}/`}
-          className="bg-white rounded-full p-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-        >
-          <ChevronLeft className="w-6 h-6" />
+        <Link href={`/games/${name}/`} className="cursor-pointer">
+          <LayoutGrid className="w-6 h-6" />
         </Link>
         <h1 className="text-6xl font-bold">#{level}</h1>
         <div className="w-6"></div>
