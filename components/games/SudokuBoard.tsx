@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { RotateCcw } from "lucide-react";
 import { X } from "lucide-react";
+import { MINISUDOKU_DB } from "@/data/mini-sudoku";
 
 type SudokuBoardProps = { level: string };
 
@@ -12,57 +13,8 @@ type Cell = {
 };
 
 const SudokuBoard = ({ level }: SudokuBoardProps) => {
-  // Initialize a sample 6x6 sudoku puzzle
-  const initialBoard: Cell[][] = [
-    [
-      { value: 1, isFixed: true },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: 5, isFixed: true },
-      { value: null, isFixed: false },
-    ],
-    [
-      { value: null, isFixed: false },
-      { value: 2, isFixed: true },
-      { value: null, isFixed: false },
-      { value: 4, isFixed: true },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-    ],
-    [
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: 3, isFixed: true },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-    ],
-    [
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: 1, isFixed: true },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-    ],
-    [
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: 2, isFixed: true },
-      { value: null, isFixed: false },
-      { value: 4, isFixed: true },
-      { value: null, isFixed: false },
-    ],
-    [
-      { value: null, isFixed: false },
-      { value: 5, isFixed: true },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: null, isFixed: false },
-      { value: 6, isFixed: true },
-    ],
-  ];
+  const sudokuBoardData = MINISUDOKU_DB[level];
+  const { cellData: initialBoard } = sudokuBoardData;
 
   const [board, setBoard] = useState<Cell[][]>(initialBoard);
   const [selectedCell, setSelectedCell] = useState<{
