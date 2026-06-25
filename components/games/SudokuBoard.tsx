@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { RotateCcw } from "lucide-react";
-import { X } from "lucide-react";
+import { Delete, RotateCcw } from "lucide-react";
 import { MINISUDOKU_DB } from "@/data/mini-sudoku";
 
 type SudokuBoardProps = { level: string };
@@ -90,38 +89,45 @@ const SudokuBoard = ({ level }: SudokuBoardProps) => {
           ))}
         </div>
 
-        {/* Number Pad */}
-        <div className="mb-6">
-          {/* <p className="text-center text-gray-700 font-semibold mb-3">
-            {selectedCell ? "Select a number" : "Click on a cell"}
-          </p> */}
-          <div className="grid grid-cols-6 gap-2">
-            {[1, 2, 3, 4, 5, 6].map((num) => (
+        {/* Gamepad Buttons */}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-[repeat(3,64px)_72px] gap-x-5 gap-y-5 items-center">
+
+            {[1, 2, 3].map((n) => (
               <button
-                key={num}
-                onClick={() => handleNumberClick(num)}
-                className="bg-white font-bold py-3 px-4 rounded-lg transition-colors bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                key={n}
+                onClick={() => handleNumberClick(n)}
+                className="h-16 w-16 text-4xl font-semibold text-zinc-900 transition active:scale-95 cursor-pointer"
               >
-                {num}
+                {n}
               </button>
             ))}
-          </div>
-        </div>
 
-        {/* Control Buttons */}
-        <div className="flex gap-4 justify-center">
-          <button
-            onClick={handleClear}
-            className="bg-white font-bold py-2 px-6 rounded-lg transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
-          <button
-            onClick={handleReset}
-            className="bg-white font-bold py-2 px-6 rounded-lg transition-colors"
-          >
-            <RotateCcw className="w-5 h-5" />
-          </button>
+            <button
+              onClick={handleClear}
+              className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-100 shadow-sm transition active:scale-95 cursor-pointer"
+            >
+              <Delete className="h-6 w-6" />
+            </button>
+
+            {[4, 5, 6].map((n) => (
+              <button
+                key={n}
+                onClick={() => handleNumberClick(n)}
+                className="h-16 w-16 text-4xl font-semibold text-zinc-900 transition active:scale-95 cursor-pointer"
+              >
+                {n}
+              </button>
+            ))}
+
+            <button
+              onClick={handleReset}
+              className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-100 shadow-sm transition active:scale-95 cursor-pointer"
+            >
+              <RotateCcw className="h-6 w-6" />
+            </button>
+
+          </div>
         </div>
       </div>
     </div>
