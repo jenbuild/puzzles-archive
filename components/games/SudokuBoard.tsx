@@ -45,7 +45,9 @@ const SudokuBoard = ({ level }: SudokuBoardProps) => {
   };
 
   const handleReset = () => {
-    setBoard(initialBoard.map((row) => [...row]));
+    setBoard(initialBoard.map((row) => {
+      return row.map(cell => (cell.isFixed ? cell : { ...cell, value: null }))
+    }));
     setSelectedCell(null);
   };
 
